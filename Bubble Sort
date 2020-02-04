@@ -1,0 +1,50 @@
+You have been given an array A of size N . you need to sort this array non-decreasing oder using bubble sort. However, you do not need to print the sorted array . You just need to print the number of swaps required to sort this array using bubble sort
+
+Input Format
+
+The first line consists of a single integer N denoting size of the array. The next line contains N space separated integers denoting the elements of the array.
+
+Output Format Print the required answer in a single line
+
+
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        /* Sample code to perform I/O:
+         * Use either of these methods for input
+
+        //BufferedReader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String name = br.readLine();                // Reading input from STDIN
+        System.out.println("Hi, " + name + ".");    // Writing output to STDOUT
+
+        //Scanner
+        Scanner s = new Scanner(System.in);
+        String name = s.nextLine();                 // Reading input from STDIN
+        System.out.println("Hi, " + name + ".");    // Writing output to STDOUT
+
+        */
+        Scanner sc = new Scanner(System.in);
+        int swaps = 0;
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        for(int i = 0; i < n ;i++){
+            a[i] = sc.nextInt();
+        }
+        for(int i = 0; i < n-1; i++)
+        {
+            for(int j = 0; j < n-i-1; j++){
+                if(a[j] > a[j+1]){
+                    int temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                    swaps++;
+                }
+            }
+        }
+        System.out.println(swaps);
+        
+        // Write your code here
+
+    }
+}
