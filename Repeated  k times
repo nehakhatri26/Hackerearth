@@ -1,0 +1,52 @@
+Given a List of N number a1,a2,a3........an, You have to find smallest number from the List that is repeated in the List exactly K number of times.
+
+Input Format
+
+First Line of Input Contain Single Value N, Size of List
+Second Line of Input Contain N Space Separated Integers
+Third Line of Input Contain Single Value K
+
+Output Format
+
+Smallest Integer Value That is Repeated Exactly K Number of Time
+
+import java.util.*;
+class TestClass {
+    
+    public static void main(String args[] ) throws Exception {
+        
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        for(int i=0;i<n;i++){
+            a[i] = sc.nextInt();
+        }
+        ArrayList<Integer> list = new ArrayList<>();
+        int flag = 1;
+        int k = sc.nextInt();
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(a[i] == a[j]){
+                   flag++; 
+                   
+                }
+                if(flag==k){
+                    list.add(a[j]);
+                }
+                flag = 1;
+            }
+            
+            
+        }
+       // for(int i=0;i<list.size();i++){
+         //   System.out.print(list.get(i)+" ");
+        //}
+        if(list.size() > 0)
+        {
+       Collections.sort(list);
+       System.out.println(list.get(0));
+        }
+
+    }
+}
