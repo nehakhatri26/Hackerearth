@@ -1,0 +1,42 @@
+Given A Series Of N Positive Integers a1,a2,a3........an. , 
+Find The Minimum And Maximum Values That Can Be Calculated By Summing Exactly N-1 Of The N Integers.
+Then Print The Respective Minimum And Maximum Values As A Single Line Of Two Space-Separated Long Integers.
+
+Input Format
+
+First Line Take Input Value Of N
+Second Line Take Input N Space Separated Integer Value
+
+Output Format
+
+Two Space Separated Value ( One Maximum Sum And One Minimum Sum )
+
+
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        ArrayList<Integer> sum = new ArrayList<>();
+        int a[] = new int[n];
+        for(int i=0;i < n;i++){
+            a[i] = sc.nextInt();
+        }
+        int temp = 0;
+        int add = 0;
+        for(int i=0;i<n;i++){
+            temp = i;
+            for(int j = 0;j<n;j++){
+                if(j!=temp){
+                    add+=a[j];
+                }
+            }
+            sum.add(add);
+            add = 0;
+        }
+        
+        Collections.sort(sum);
+        System.out.print(sum.get(0)+" "+sum.get(sum.size()-1));
+
+    }
+}
